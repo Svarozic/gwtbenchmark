@@ -6,4 +6,5 @@ Fork contains these additions:
 - `gwt-benchmark/gwt-benchmark.launch`
 - `.gitignore`
 - collections packages written with JsInterop copied from [GWTReact/gwt-interop-utils Version 0.4.0](https://github.com/GWTReact/gwt-interop-utils/releases/tag/v0.4.0)
-- JsInterOp Array Benchmarks `JioArray*`
+- `HashMap` Benchmark
+- JsInterOp Benchmarks `JioArray*` and `JioStringMap*`

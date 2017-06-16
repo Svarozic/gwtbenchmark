@@ -25,6 +25,6 @@ public class JioArrayAddBenchmark implements Runnable
     @Override
     public String toString()
     {
-        return "JioArray - add"; //$NON-NLS-1$
+        return "JioArray [add]"; //$NON-NLS-1$
     }
 }

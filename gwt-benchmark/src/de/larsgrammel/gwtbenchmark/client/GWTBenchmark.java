@@ -32,26 +32,44 @@ public class GWTBenchmark implements EntryPoint
     @Override
     public void onModuleLoad()
     {
-        Panel parentPanel = new HorizontalPanel();
-        RootPanel.get().add( parentPanel );
-        
         int collectionSize = 100;
         int containsTests = 20;
         
-        addBenchmark( new ArrayListAddBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new HashSetAddBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new JsArrayAddBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new JioArrayAddBenchmark( collectionSize ), parentPanel );
+        Panel parentPanel = new VerticalPanel();
+        RootPanel.get().add( parentPanel );
         
-        addBenchmark( new ArrayListIteratorBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new HashSetIteratorBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new JioArrayIteratorBenchmark( collectionSize ), parentPanel );
-        addBenchmark( new JioArrayForEachBenchmark( collectionSize ), parentPanel );
+        Panel arrayPanel = new HorizontalPanel();
+        parentPanel.add( arrayPanel );
         
-        addBenchmark( new ArrayListContainsBenchmark( collectionSize, containsTests ), parentPanel );
-        addBenchmark( new HashSetContainsBenchmark( collectionSize, containsTests ), parentPanel );
-        addBenchmark( new JsArrayContainsBenchmark( collectionSize, containsTests ), parentPanel );
-        addBenchmark( new JioArrayContainsBenchmark( collectionSize, containsTests ), parentPanel );
+        addBenchmark( new ArrayListAddBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new HashSetAddBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JsArrayAddBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JioArrayAddBenchmark( collectionSize ), arrayPanel );
+        
+        addBenchmark( new ArrayListIteratorBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new HashSetIteratorBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JioArrayIteratorBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JioArrayForEachBenchmark( collectionSize ), arrayPanel );
+        
+        addBenchmark( new ArrayListContainsBenchmark( collectionSize, containsTests ), arrayPanel );
+        addBenchmark( new HashSetContainsBenchmark( collectionSize, containsTests ), arrayPanel );
+        addBenchmark( new JsArrayContainsBenchmark( collectionSize, containsTests ), arrayPanel );
+        addBenchmark( new JioArrayContainsBenchmark( collectionSize, containsTests ), arrayPanel );
+        
+        Panel mapPanel = new HorizontalPanel();
+        parentPanel.add( mapPanel );
+        
+        addBenchmark( new HashMapAddBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new JioStringMapAddBenchmark( collectionSize ), mapPanel );
+        
+        addBenchmark( new HashMapIteratorBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new JioStringMapIteratorBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new HashMapEntrySetBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new JioStringMapForEachBenchmark( collectionSize ), mapPanel );
+        
+        addBenchmark( new HashMapContainsBenchmark( collectionSize, containsTests ), mapPanel );
+        addBenchmark( new JioStringMapContainsBenchmark( collectionSize, containsTests ), mapPanel );
+        
     }
     
     private void addBenchmark( final Runnable benchmark, Panel parentPanel )

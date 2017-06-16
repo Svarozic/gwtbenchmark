@@ -37,6 +37,6 @@ public class JioArrayContainsBenchmark implements Runnable
     @Override
     public String toString()
     {
-        return "JioArray - contains"; //$NON-NLS-1$
+        return "JioArray [contains]"; //$NON-NLS-1$
     }
 }

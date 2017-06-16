@@ -28,6 +28,6 @@ public class JioArrayIteratorBenchmark implements Runnable
     @Override
     public String toString()
     {
-        return "JioArray- iterator"; //$NON-NLS-1$
+        return "JioArray [iterator]"; //$NON-NLS-1$
     }
 }

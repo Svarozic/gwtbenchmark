@@ -25,6 +25,6 @@ public class JioArrayForEachBenchmark extends JioArrayIteratorBenchmark
     @Override
     public String toString()
     {
-        return "JioArray- forEach"; //$NON-NLS-1$
+        return "JioArray [forEach]"; //$NON-NLS-1$
     }
 }
