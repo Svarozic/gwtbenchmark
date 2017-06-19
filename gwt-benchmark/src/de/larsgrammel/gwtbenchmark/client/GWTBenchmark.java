@@ -49,6 +49,7 @@ public class GWTBenchmark implements EntryPoint
         addBenchmark( new ArrayListIteratorBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new HashSetIteratorBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new JioArrayIteratorBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JioArrayForIndexBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new JioArrayForEachBenchmark( collectionSize ), arrayPanel );
         
         addBenchmark( new ArrayListContainsBenchmark( collectionSize, containsTests ), arrayPanel );
@@ -63,8 +64,9 @@ public class GWTBenchmark implements EntryPoint
         addBenchmark( new JioStringMapAddBenchmark( collectionSize ), mapPanel );
         
         addBenchmark( new HashMapIteratorBenchmark( collectionSize ), mapPanel );
-        addBenchmark( new JioStringMapIteratorBenchmark( collectionSize ), mapPanel );
         addBenchmark( new HashMapEntrySetBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new JioStringMapIteratorBenchmark( collectionSize ), mapPanel );
+        addBenchmark( new JioStringMapForIndexBenchmark( collectionSize ), mapPanel );
         addBenchmark( new JioStringMapForEachBenchmark( collectionSize ), mapPanel );
         
         addBenchmark( new HashMapContainsBenchmark( collectionSize, containsTests ), mapPanel );
