@@ -5,7 +5,7 @@ import gwt.interop.utils.shared.collections.Array;
 
 public class JioArrayAddBenchmark implements Runnable
 {
-    private final int size;
+    protected final int size;
     
     public JioArrayAddBenchmark( int size )
     {

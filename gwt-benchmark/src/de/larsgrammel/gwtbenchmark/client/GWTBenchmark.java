@@ -45,6 +45,7 @@ public class GWTBenchmark implements EntryPoint
         addBenchmark( new HashSetAddBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new JsArrayAddBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new JioArrayAddBenchmark( collectionSize ), arrayPanel );
+        addBenchmark( new JioArrayCheckedAddBenchmark( collectionSize ), arrayPanel );
         
         addBenchmark( new ArrayListIteratorBenchmark( collectionSize ), arrayPanel );
         addBenchmark( new HashSetIteratorBenchmark( collectionSize ), arrayPanel );

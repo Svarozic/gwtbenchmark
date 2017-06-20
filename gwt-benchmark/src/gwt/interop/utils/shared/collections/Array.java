@@ -21,11 +21,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-import jsinterop.annotations.*;
-
 import java.util.List;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
+import jsinterop.annotations.JsFunction;
+import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsOverlay;
+import jsinterop.annotations.JsPackage;
+import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
 /**
  * An interface to a Javascript array. The implementation may be different on the client
@@ -442,6 +447,88 @@ public interface Array<T> {
         return new ArrayListAdapter<T>(this);
     }
 
+    /*********************************************************************************************
+     * Java Helpers
+     *********************************************************************************************/
+    
+    /**
+     * Test if array contains value, indexOf is used
+     * 
+     * @param value Value to test
+     * @return <code>true</code> if tested value is in array
+     * @author Peter Petranik (apuhu) <peter.petranik@agfa.com>
+     */
+    @JsOverlay
+    public default boolean contains( T value )
+    {
+        return this.indexOf( value ) != -1;
+    }
+    
+    /**
+     * Clear array with A.splice(0,A.length) method
+     * 
+     * @author Peter Petranik (apuhu) <peter.petranik@agfa.com>
+     */
+    @JsOverlay
+    public default void clear()
+    {
+        this.splice( 0, this.getLength() );
+    }
+    
+    /**
+     * Remove element on specified index with A.splice(index, 1)
+     * 
+     * @param index Index of element to be removed
+     * @return removed element
+     * @author Peter Petranik (apuhu) <peter.petranik@agfa.com>
+     */
+    @JsOverlay
+    public default T removeElementAtIndex( int index )
+    {
+        return this.splice( index, 1 ).get( 0 );
+    }
+    
+    /**
+     * Removes the first occurrence of the specified element from this array, if it is present (optional operation). If
+     * this array does not contain the element, it is unchanged.
+     * 
+     * @param element Element to be removed from this array, if present
+     * @return <code>true</code> if this array contained the specified element
+     */
+    @JsOverlay
+    public default boolean removeElement( T element )
+    {
+        int indexToRemove = this.indexOf( element );
+        
+        if ( indexToRemove > -1 )
+        {
+            this.removeElementAtIndex( indexToRemove );
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * Iterate all elements in an argument array and push them to the array
+     * 
+     * @param array Array of element to add
+     * @author Peter Petranik (apuhu) <peter.petranik@agfa.com>
+     */
+    @JsOverlay
+    public default void addAll( Array<T> array )
+    {
+        if ( array != null )
+        {
+            for ( int i = 0, iLength = array.getLength(); i < iLength; i++ )
+            {
+                this.push( array.get( i ) );
+            }
+        }
+    }
+    
     /* Functional interfaces */
 
     @JsFunction
